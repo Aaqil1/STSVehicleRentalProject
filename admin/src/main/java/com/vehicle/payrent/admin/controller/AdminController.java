@@ -166,5 +166,16 @@ public class AdminController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
     
+    //Function added by Afroz
+    @GetMapping("/admin/vendor/{vendorName}")
+    public ResponseEntity<Vendor> getVendorList(@PathVariable Integer vendorName){
+        Vendor vendor = adminService.getVendorList(vendorName);
+        if(vendor != null){
+            return new ResponseEntity<>(vendor,HttpStatus.OK);
+        }
+        else
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+    
     
 }
